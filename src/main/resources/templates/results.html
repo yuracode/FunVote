@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投票結果</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 投票結果ランキング 📊</h1>
+        
+        <div th:each="voteresult : ${voteresults}" class="result-item">
+     
+            <div class="result-info">
+                <div class="result-name" th:text="${voteresult.memberName}"></div>
+                <div class="result-votes" 
+                     th:text="${voteresult.voteCount} + '票 '">
+                </div>
+            </div>
+        </div>
+        
+        <div class="total-votes">
+            <strong>総投票数:</strong> <span th:text="${totalVotes}"></span>票
+        </div>
+        
+        <div class="button-area">
+            <a th:href="@{/}" class="btn btn-link">投票画面に戻る</a>
+            <button onclick="location.reload()" class="btn btn-link">更新</button>
+        </div>
+    </div>
+</body>
+</html>

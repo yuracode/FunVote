@@ -12,7 +12,6 @@ CREATE TABLE votes (
     vote_id INT AUTO_INCREMENT PRIMARY KEY,
     member_id INT NOT NULL,
     voted_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    ip_address VARCHAR(45),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 

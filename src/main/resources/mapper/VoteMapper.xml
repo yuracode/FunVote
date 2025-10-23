@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.VoteMapper">
+    <!-- 投票登録 -->
+    <insert id="insert" parameterType="com.example.demo.entity.Vote">
+        INSERT INTO votes (member_id, voted_at)
+        VALUES (#{memberId}, NOW())
+    </insert>
+
+    <!-- 総投票数 -->
+    <select id="countTotalVotes" resultType="long">
+        SELECT COUNT(*)
+        FROM votes
+    </select>
+
+    <!-- 投票画面用：メンバーと投票数を取得 -->
+    <select id="findVoteResults" resultType="com.example.demo.entity.VoteResult">
+        SELECT 
+            m.member_id AS memberId,
+            m.member_name AS memberName,
+            m.image_path AS imagePath,
+            COUNT(v.vote_id) AS voteCount
+        FROM members m
+        LEFT JOIN votes v ON m.member_id = v.member_id
+        GROUP BY m.member_id, m.member_name, m.image_path, m.display_order
+        ORDER BY voteCount DESC
+    </select>
+
+    <!-- メンバー別の投票数を取得 -->
+    <select id="countByMemberId" resultType="long">
+        SELECT COUNT(*)
+        FROM votes
+        WHERE member_id = #{memberId}
+    </select>
+
+</mapper>
