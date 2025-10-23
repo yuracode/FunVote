@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MemberMapper">
+    <!-- 全メンバー取得（表示順） -->
+    <select id="findAll" resultType="com.example.demo.entity.Member">
+        SELECT 
+            member_id,
+            member_name,
+            image_path,
+            display_order,
+            created_at
+        FROM members
+        ORDER BY display_order ASC
+    </select>
+    <!-- メンバー1件取得 -->
+    <select id="findById" resultType="com.example.demo.entity.Member">
+        SELECT 
+            member_id,
+            member_name,
+            image_path,
+            display_order,
+            created_at
+        FROM members
+        WHERE member_id = #{memberId}
+    </select>
+
+</mapper>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推しメンバー投票システム</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 推しメンバー投票システム 🌟</h1>
+        
+        <div class="member-grid">
+            <div class="member-card" th:each="member : ${members}">
+                <div class="member-image">👤</div>
+                <div class="member-name" th:text="${member.memberName}"></div>
+                <div class="vote-count" th:text="  '票'"></div>
+                
+                <form method="post" th:action="@{/vote}">
+                    <input type="hidden" name="memberId" th:value="${member.memberId}">
+                    <button type="submit" class="btn btn-vote">投票する</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="button-area">
+            <a th:href="@{/result}" class="btn btn-link">結果を見る</a>
+        </div>
+    </div>
+</body>
+</html>
