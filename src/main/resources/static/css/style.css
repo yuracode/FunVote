@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+body {
+	max-width: 1000px;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.member-grid {
+/*	display: grid;*/
+/*	grid-template-columns: 1fr 1fr 1fr;*/
+/*	gap: 20px;*/
+}
+
+.member-card {
+/*	border: 1px solid gray;*/
+/*	padding: 20px;*/
+/*	text-align: center;*/
+}
+
+.member-photo {
+/*	width: 150px;*/
+/*	height: 150px;*/
+}
+
+.btn-vote {
+/*	width: 100%;*/
+/*	padding: 10px;*/
+}
+
+.button-area {
+/*	text-align: center;*/
+/*	margin-top: 20px;*/
+}
