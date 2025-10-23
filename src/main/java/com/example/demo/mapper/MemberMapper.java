@@ -9,5 +9,4 @@ import com.example.demo.entity.Member;
 @Mapper
 public interface MemberMapper {
     List<Member> findAll();
-    Member findById(Integer memberId);
 }

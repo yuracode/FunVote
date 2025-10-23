@@ -14,7 +14,7 @@
             <div class="member-card" th:each="member : ${members}">
                 <div class="member-image">👤</div>
                 <div class="member-name" th:text="${member.memberName}"></div>
-                <div class="vote-count" th:text="  '票'"></div>
+				<img th:src="${member.imagePath}" alt="Member Image" class="member-photo">
                 
                 <form method="post" th:action="@{/vote}">
                     <input type="hidden" name="memberId" th:value="${member.memberId}">

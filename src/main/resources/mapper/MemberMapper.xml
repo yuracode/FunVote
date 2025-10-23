@@ -12,16 +12,4 @@
         FROM members
         ORDER BY display_order ASC
     </select>
-    <!-- メンバー1件取得 -->
-    <select id="findById" resultType="com.example.demo.entity.Member">
-        SELECT 
-            member_id,
-            member_name,
-            image_path,
-            display_order,
-            created_at
-        FROM members
-        WHERE member_id = #{memberId}
-    </select>
-
 </mapper>
